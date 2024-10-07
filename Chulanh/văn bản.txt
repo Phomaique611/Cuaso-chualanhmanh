@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cửa Sổ Chữa Lành</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #E3F2E6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #2E2E2E;
+        }
+
+        .container {
+            background-color: #FFEEF2;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #8FB996;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #C86C77;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #6B705C;
+        }
+
+        .advice {
+            background-color: #8FB996;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            border: 2px solid #C86C77;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #8FB996;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #6B705C;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #2E2E2E;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cửa Sổ Chữa Lành</h1>
+        <h2>Hôm nay của bạn như nào?</h2>
+        <input type="text" id="userInput" placeholder="Hãy chia sẻ nhé...">
+        <button onclick="giveAdvice()">Gửi</button>
+
+        <div class="result" id="result"></div>
+
+        <div class="advice" id="advice">
+            <p>Hãy để lòng mình nhẹ nhàng, và luôn nhớ rằng mỗi ngày đều là một cơ hội mới để bắt đầu.</p>
+        </div>
+    </div>
+
+    <script>
+        function giveAdvice() {
+            const input = document.getElementById("userInput").value;
+            const result = document.getElementById("result");
+
+            if (input.trim() === "") {
+                result.textContent = "Bạn chưa chia sẻ gì cả. Hãy viết vài dòng nhé!";
+            } else {
+                result.textContent = "Cảm ơn vì đã chia sẻ. Bạn đã làm rất tốt rồi!";
+                setTimeout(() => {
+                    document.getElementById("advice").innerHTML = `
+                        <p>Mọi chuyện rồi sẽ ổn thôi, hãy tin tưởng vào bản thân. Nếu hôm nay khó khăn, hãy dành chút thời gian cho chính mình, nghỉ ngơi và hồi phục nhé!</p>
+                    `;
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>
